@@ -1,0 +1,24 @@
+<ion-view>
+        <ion-header-bar align-title="center" class="bar-positive">
+		  <h1 class="title">登录</h1>
+		</ion-header-bar>
+		<ion-content class="main">
+		<form name="logonForm">
+			<ul class="logon_info info_wrap">
+				<li class="fixed">
+					<label>账  号</label>
+					<input type="text" class="itext" ng-model="user.UserName" placeholder="用户名/手机号/邮箱" required/>
+				</li>
+				<li class="fixed">
+					<label>密码</label>
+					<input type="password" class="itext" ng-model="user.PassWord" placeholder="请输入登录密码" required/>
+				</li>
+			</ul>
+			<div class="btn_wrap">
+				<a ng-click="logon()" ng-disabled="!logonForm.$valid">立即登录</a>
+			</div>
+			
+		</form>
+		</ion-content>
+    <div ng-include="'templates/foot.html'"></div>
+</ion-view>

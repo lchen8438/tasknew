@@ -1,0 +1,22 @@
+<ion-view>
+    <ion-header-bar class="bar-positive" align-title="center">
+        <div class="button am-back" ng-click="goBack()"></div>
+        <h1 class="title">到期业务提醒</h1>
+    </ion-header-bar>
+    <ion-content class="gray-main">
+        <dl class="am-list arrow-list">
+            <dd class="item am-button-default" ng-click="gotoBusiness(7)">
+                <span class="">7天内到期业务(含第7天)</span>
+                <i class="am_iconfont font-icon-gxxl">&#xe632;</i>
+            </dd>
+            <dd class="item am-button-default" ng-click="gotoBusiness(15)">
+                <span class="">15天内到期业务(含第15天)</span>
+                <i class="am_iconfont font-icon-blue">&#xe620;</i>
+            </dd>
+            <dd class="item am-button-default" ng-click="gotoBusiness(30)">
+                <span class="">30天内到期业务(含第30天)</span>
+                <i class="am_iconfont font-icon-oranger">&#xe631;</i>
+            </dd>
+        </dl>
+    </ion-content>
+</ion-view>

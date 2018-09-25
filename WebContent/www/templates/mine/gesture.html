@@ -1,0 +1,29 @@
+<ion-view>
+    <ion-header-bar class="bar-positive" align-title="center">
+        <div class="button am-back" ng-click="goBack()"></div>
+        <h1 class="title">手势密码</h1>
+    </ion-header-bar>
+    <ion-content class="gray-main">
+        <ul class="am-list arrow-list">
+            <li class="item item-toggle">
+                <i class="am_iconfont font-icon-blue">&#xe6b5;</i>
+
+                <p class="font_s16"><span>设置手势密码</span></p>
+                <label class="toggle toggle-positive">
+                    <input type="checkbox" ng-model="gesture.click" ng-change="clickchange(gesture.click)">
+
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+        </ul>
+        <dl class="am-list arrow-list">
+            <dd class="item am-button-default" ng-click="gotoChange()" ng-show="gesture.isShow">
+                <i class="am_iconfont font-icon-red">&#xe610;</i>
+
+                <p class="font_s16"><span>修改手势密码</span></p>
+            </dd>
+        </dl>
+    </ion-content>
+</ion-view>

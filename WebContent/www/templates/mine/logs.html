@@ -1,0 +1,40 @@
+<ion-view>
+    <div class="flex-log">
+        <ion-header-bar class="bar-positive" align-title="center">
+            <div class="button am-back" ng-click="gomy()"></div>
+            <h1 class="title">工作日志</h1>
+
+            <div class="button am-plus" ng-click="gotologadd()"></div>
+        </ion-header-bar>
+        <ion-header-bar style="background: #f0effe;" class="bar-subheader item-input-inset">
+            <label class="item-input-wrapper">
+                <input type="text" ng-model="logsearch.WorkBrief" placeholder="输入搜索摘要内容">
+            </label>
+            <button class="button" ng-click="tologsSelect()">查 询</button>
+        </ion-header-bar>
+        <ion-content style="background: #f0effe;" class="gray-main" delegate-handle="mainScroll">
+            <br>
+            <ion-refresher on-refresh="refresh()" pulling-text="下拉刷新" refreshing-text="正在刷新中" spinner="ios">
+            </ion-refresher>
+            <dl style="background: #f0effe;" class="am-list business-list">
+                <dd style="width:97%;" class="worktip_item item" ng-repeat="item in items" ng-click="gotologbaseinfo(item.SerialNo)">
+                    <h3>日志摘要：{{item.WorkBrief}}</h3>
+                    <h4>登记日期：{{item.InputDate}}</h4>
+                    <i class="am_iconfont am-icon-db">&#xe6b3;</i>
+                </dd>
+                <div style="background: #f0effe;" class="noDataBox" ng-show="noData">
+                    <div class="nodata">
+                        <img src="img/empty_page.png" width="70px">
+                        <span class="nodata_span">暂无数据</span>
+                    </div>
+                </div>
+                <div class="loadingBox" ng-show="loadingMore">
+                    <h3>正在加载中</h3>
+                </div>
+            </dl>
+            <ion-infinite-scroll icon="ion-loading-c" ng-if="hasMore" on-infinite="loadMore()" distance="1%">
+                <div>正在加载中</div>
+            </ion-infinite-scroll>
+        </ion-content>
+    </div>
+</ion-view>

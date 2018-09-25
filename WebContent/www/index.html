@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<!-- 放入手机app工程时，添加cordova.js及 lib/ngCordova/dist/ng-cordova.js的引用，在app.js文件中的angular.module加入'ngCordova'参数-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/common.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/animation.css" rel="stylesheet">
+    <!-- <link href="css/sign.css" rel="stylesheet" media="screen and (orientation : portrait)">
+    <link href="css/sign_land.css" rel="stylesheet" media="screen and (orientation : landscape)"> -->
+    <link href="css/sign.css" rel="stylesheet">
+    <!-- <link href="css/sign_land.css" rel="stylesheet"> -->
+    <link href="css/report.css" rel="stylesheet">
+    <link href="css/cq.css" rel="stylesheet">
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/ionic/js/angular/angular-sanitize.js"></script>
+    <script src="lib/ionic/js/angular/angular-cookies.js"></script>
+
+    <script src="js/ng-cordova.min.js"></script>
+    <script src="js/ionic-native-transitions.min.js"></script>
+
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <!-- 手机app编译将此处开启 -->
+    <script src="cordova.js"></script>
+    <!-- your app's js -->
+    <script src="config.js"></script>
+  	<script src="js/as_common.js"></script>
+  	<script src="js/valid.js"></script>
+    <script src="js/errors.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/services.js"></script>
+
+    <!-- <script src="js/controllers/baseControllers.js"></script> -->
+
+    <!-- new controllers -->
+    <script src="js/controllers/mineControllers.js"></script>
+
+    <script src="js/controllers/logonControllers.js"></script>
+
+    <script src="js/controllers/demoControllers.js"></script>
+
+    <!-- 审批模块-新 add by jjhan -->
+    <script src="js/RFcontrollers/examineControllers.js"></script>
+    <script src="js/RFcontrollers/workTipsControllers.js"></script>
+    <script src="js/RFcontrollers/sysSelController.js"></script>  
+    <script src="js/RFcontrollers/approveStatisticalControllers.js"></script>  
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <script src="js/as_plugins.js"></script>
+    <!--原来的js在显示标记线上的字符时不能显示到线的上方，所以使用新下载的js-->
+    <script src="js/echarts.js"></script>
+    <!--<script type="text/javascript" src="js/echarts-all-3.0.0.js"></script>-->
+
+    <!-- 百度地图api接口调用 -->
+    <!--<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=WORi4lhjnRAUZLfter3FH2Sg"></script>-->
+    <!-- <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=vGoN452CmneeZGVjDzWFR6sYpRUvHSb4"></script> -->
+  	<script type="text/javascript">
+
+      function onLoad() {
+        document.addEventListener("deviceready", onDeviceReady, false);
+      }
+      function onDeviceReady() {
+      }
+    </script>
+
+  </head>
+  <body ng-app="com.amarsoft.mobile" onload="onLoad()">
+    <ion-nav-view></ion-nav-view>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+<ion-view>
+    <ion-header-bar class="bar-positive" align-title="center">
+        <div class="button am-back" ng-click="goBack()"></div>
+        <h1 class="title">意见反馈</h1>
+    </ion-header-bar>
+    <ion-content style="background: #f0effe;" class="gray-main">
+        <tr>
+            <td><span class="am-input-list_name">请留下您的宝贵意见：</span></td>
+        </tr>
+        <ul class="am-input-list">
+            <li>
+                <textarea class="am-textarea" rows="8" cols="" ng-model="opinion.signOpinion"></textarea>
+            </li>
+        </ul>
+        <div class="btn-box row">
+            <div class="col col-100">
+                <button type="button" class="am-button am-button-red" ng-click="submit()">提 交</button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

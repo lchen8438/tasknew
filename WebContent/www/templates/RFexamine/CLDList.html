@@ -1,0 +1,78 @@
+<table class="bm_tb_list" ng-repeat="item in items">
+    <thead>
+        <tr>
+            <th colspan="2">{{item.DivideName}}
+                <button type="button" class="divide-btn" ng-click="SaveCLDivide(item)">保存</button>
+                <button type="button" class="divide-btn" ng-click="ShowDivideList(item)">切分项</button>
+                <i class="icon-float-right" ng-click="showNextLevel(item)" ng-class="item.ShowFlag?'ion-chevron-up':'ion-chevron-down'"></i>
+            </th>
+        </tr>
+    </thead>
+    <tbody ng-show="item.ShowFlag">
+        <tr>
+            <td class="td_width_30">币种:</td>
+            <td>{{item.CurrencyName}}</td>
+        </tr>
+        <tr>
+            <td class="td_width_30">授信金额(元):</td>
+            <!-- <td>{{item.BusinessSum}}</td> -->
+            <td>
+                <input type="text" onkeyup="value=value.replace(/[^\d.]/g,'').replace(/^\./g,'').replace('.','$#$').replace(/\./g,'').replace('$#$','.').replace(/^(\-)*(\d+)\.(\d\d).*$/,'$1$2.$3')"
+                    class="m-divide-input" ng-model="item.BusinessSum" />
+            </td>
+        </tr>
+        <tr>
+            <td class="td_width_30">敞口金额(元):</td>
+            <!-- <td>{{item.ExposureSum}}</td> -->
+            <td>
+                <input type="text" onkeyup="value=value.replace(/[^\d.]/g,'').replace(/^\./g,'').replace('.','$#$').replace(/\./g,'').replace('$#$','.').replace(/^(\-)*(\d+)\.(\d\d).*$/,'$1$2.$3')"
+                    class="m-divide-input" ng-model="item.ExposureSum" />
+            </td>
+        </tr>
+        <tr>
+            <td class="td_width_30">抵押:</td>
+            <td>{{item.MortgageDivideSum}}</td>
+        </tr>
+        <tr>
+            <td class="td_width_30">质押:</td>
+            <td>{{item.PledgeDivideSum}}</td>
+        </tr>
+        <tr>
+            <td class="td_width_30">保证:</td>
+            <td>{{item.EnsureDivideSum}}</td>
+        </tr>
+        <tr>
+            <td class="td_width_30">信用:</td>
+            <td>{{item.CreditDivideSum}}</td>
+        </tr>
+        <tr>
+            <td class="td_width_30">保证金比率(%):</td>
+            <td>{{item.BailRate}}</td>
+        </tr>
+        <tr>
+            <td class="td_width_30">保证金金额(元):</td>
+            <!--  <td>{{item.BailSum}}</td> -->
+            <td>
+                <input type="text" onkeyup="value=value.replace(/[^\d.]/g,'').replace(/^\./g,'').replace('.','$#$').replace(/\./g,'').replace('$#$','.').replace(/^(\-)*(\d+)\.(\d\d).*$/,'$1$2.$3')"
+                    class="m-divide-input" ng-model="item.BailSum" />
+            </td>
+        </tr>
+        <tr>
+            <td class="td_width_30">授信到期日:</td>
+            <!--  <td>{{item.TERMDATE1}}</td> -->
+            <td>
+                <input type="date" class="m-divide-input" ng-model="item.TERMDATE1" />
+            </td>
+        </tr>
+        <tr>
+            <td class="td_width_30">更新日期:</td>
+            <td>{{item.UpdateDate}}</td>
+        </tr>
+    </tbody>
+</table>
+<div style="background: #f0effe;" class="noDataBox" ng-show="noData">
+    <div class="nodata">
+        <img src="img/empty_page.png" width="70px">
+        <span class="nodata_span">暂无数据</span>
+    </div>
+</div>

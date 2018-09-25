@@ -1,0 +1,65 @@
+<!--列表搜索框-->
+<div class="modal_father"></div>
+<ion-modal-view class="modal_view" style="height:300px;">
+    <ion-header-bar align-title="center" class="bar-positive">
+        <div>
+            <button class="button button-clear" ng-click="hideModal()">
+                <i class="ion ion-close" style="font-size: 20px;margin-left: 10px;margin-top: 12px;color:#fff"></i>
+            </button>
+        </div>
+        <h4 class="title">列表搜索</h4>
+    </ion-header-bar>
+    <ion-content delegate-handle="smallScroll" class="ui-wrap">
+        <div class="flex-search">
+            <ul class="am-input-list" ng-show="!noData1">
+                <li ng-repeat="placeholder in placeholders">
+                    <div ng-if="'Input'==placeholder.showFlag&&(placeholder.placeholder.indexOf('金额')<0)">
+                        <input class="am-text" type="text" onkeyup="value=value.replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5]/g,'')" placeholder="{{placeholder.placeholder}}" ng-model="$parent.conf[$index]" />
+                    </div>
+                    <div ng-if="'Input'==placeholder.showFlag&&(placeholder.placeholder.indexOf('金额')>-1)">
+                        <input class="am-text" type="text" onkeyup="value=value.replace(/[^\d.]/g,'').replace(/^\./g,'').replace('.','$#$').replace(/\./g,'').replace('$#$','.').replace(/^(\-)*(\d+)\.(\d\d).*$/,'$1$2.$3')"
+                         placeholder="{{placeholder.placeholder}}" ng-model="$parent.conf[$index]" />
+                    </div>
+                    <div ng-if="'MuiltSelect'==placeholder.showFlag">
+                        <input ng-show="!BusinessTypesFlag" class="am-text" type="text" readOnly ng-click="showBusinessTypes()" placeholder="{{placeholder.placeholder}}"
+                            ng-model="$parent.conf[$index]" />
+                        <select class="searchBar-approve" ng-show="BusinessTypesFlag" ng-model="BTL1" ng-change="BT1Change(BTL1)">
+                            <option ng-repeat="bt1 in BusinessTypes1" value="{{bt1.SortNo}}">{{bt1.TypeName}}</option>
+                        </select>
+                        <select class="searchBar-approve" ng-show="BusinessTypesFlag" ng-model="BTL2" ng-change="BT2Change(BTL2)">
+                            <option ng-repeat="bt2 in BusinessTypes2" value="{{bt2.SortNo}}">{{bt2.TypeName}}</option>
+                        </select>
+                        <select class="searchBar-approve" ng-show="BusinessTypesFlag" ng-model="$parent.conf[$index]">
+                            <option ng-repeat="bt3 in BusinessTypes3" value="{{bt3.TypeNo}}">{{bt3.TypeName}}</option>
+                        </select>
+                    </div>
+                    <div ng-if="'SingleSelect'==placeholder.showFlag">
+                        <input ng-show="!singleSelectFlag" class="am-text" type="text" readOnly ng-click="showSingleSelect(placeholder)" placeholder="{{placeholder.placeholder}}"
+                            ng-model="$parent.conf[$index]" />
+                        <select class="searchBar-apply" ng-show="singleSelectFlag" ng-model="$parent.conf[$index]">
+                            <option ng-repeat="select in selects" value="{{select.No}}">{{select.Name}}</option>
+                        </select>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="noDataBox" ng-show="noData1">
+            <div class="nodata">
+                <img src="img/empty_page.png" width="70px">
+                <h4>暂未配置查询要素</h4>
+            </div>
+        </div>
+        </dl>
+    </ion-content>
+
+    <ion-footer-bar ng-show="!noData">
+        <div class="btn-box row" style="width:{{contentWidth}}px">
+            <div class="col">
+                <button type="button" class="examine-button-blue" ng-click="resetSearch()">重置</button>
+            </div>
+            <div class="col">
+                <button type="button" class="examine-button-blue" ng-click="searchForList()">搜索</button>
+            </div>
+        </div>
+    </ion-footer-bar>
+</ion-modal-view>

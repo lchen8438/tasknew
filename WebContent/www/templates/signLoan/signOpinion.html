@@ -1,0 +1,51 @@
+<div ng-show="!(nextActionShowFlag)">
+    <ion-header-bar align-title="center" class="bar-positive">
+        <div>
+            <button class="button button-clear" ng-click="hideModal()">
+                <i class="ion ion-chevron-left" style="font-size: 25px;margin-left: 10px;margin-top: 12px;color:#fff"></i>
+            </button>
+        </div>
+        <h1 class="title">签署意见</h1>
+    </ion-header-bar>
+    
+    <!-- 额度生效签署意见 -->
+    <ion-content class="gray-main">
+    	<ul class="am-input-list">
+            <li>
+                <h3>意见签署(限1000汉字)<font style="color: red">*</font>:</h3>
+            </li>
+            <li class="am-input-list_text">
+                <textarea class="am-textarea" rows="5" cols="" ng-model="opinionInfos.PhaseOpinion"></textarea>
+            </li>
+        </ul>
+        <table class="am_tb_list" style="border-bottom:10px solid #eeeeee">
+            <tbody>
+            <tr>
+             <td style="width: 30%;height: 45px;vertical-align: middle;"><h3>登记人:</h3></td>
+             <td style="position: relative;left: 20px;vertical-align: middle;">
+              <input style="width:294px" ng-model="opinionInfos.InputUserName"   readonly="readonly" /></td>
+            </tr>
+              <tr>
+             <td style="width: 30%;height: 45px;vertical-align: middle;"><h3>登记机构:</h3></td>
+             <td style="position: relative;left: 20px;vertical-align: middle;">
+             <input style="width:294px"  ng-model="opinionInfos.InputOrgName"   readonly="readonly" /></td>
+            </tr>
+              <tr>
+             <td style="width: 30%;height: 45px;vertical-align: middle;"><h3>登记日期:</h3></td>
+             <td style="position: relative;left: 20px;vertical-align: middle;">
+              <input style="width:294px" ng-model="opinionInfos.InputTime"   readonly="readonly" /></td>
+            </tr>
+            
+            </tbody>
+        </table>
+    </ion-content>
+    
+
+    <ion-footer-bar>
+        <div class="col col-100">
+            <button type="button" class="am-button am-button-blue" ng-click="saveOpinion()">保存并提交
+            </button>
+        </div>
+    </ion-footer-bar>
+
+</div>

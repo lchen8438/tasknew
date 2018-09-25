@@ -1,0 +1,116 @@
+<ion-header-bar align-title="center" class="bar-ipad-nav">
+    <h1 class="title" on-touch="logonPress('list')" on-release="cancleTimeout('list')">工作提醒</h1>
+</ion-header-bar>
+
+<ion-header-bar class="bar-subheader am-sub-header">
+    <!-- <ion-content class="padding" has-bouncing="false"> -->
+    <ion-scroll has-bouncing="false" style="width:414px;" direction="x">
+        <div style="width:900px;" class="bar-subheader am-sub-header">
+            <ul class="am-tab row">
+                <li class="col col-18">日常业务提示</li>
+                <li class="col col-18">业务提醒预警</li>
+                <li class="col col-18">日常业务提示</li>
+                <li class="col col-18">业务提醒预警</li>
+                <li class="col col-18">日常业务提示</li>
+                <li class="col col-18">业务提醒预警</li>
+                <li class="col col-18">日常业务提示</li>
+                <li class="col col-18">业务提醒预警</li>
+            </ul>
+        </div>
+    </ion-scroll>
+    <!-- </ion-content> -->
+</ion-header-bar>
+
+<ion-content class="gray-main">
+    <!-- <ion-refresher on-refresh="refresh()" pulling-text="下拉刷新" refreshing-text="正在刷新中" spinner="ios">
+    </ion-refresher> -->
+    <div>
+        <dl class="am-list business-list">
+            <!-- <dd ng-repeat="item in items" class="item am-button-default" ng-click="gotoBusiness()"> -->
+            <dd class="item am-button-default">
+                <!-- <h3>{{item.CustomerName}}</h3> -->
+                <h4>
+                    <label style="width:20px; height:18px; line-height:18px; text-align:right; background-color:#66ccff; color:white;">业务类型：</label>
+                    <span>XXXXXXXXXXXXXXXXXXXXXX</span>
+                </h4>
+                <h4>
+                    <label style="width:20px; height:18px; line-height:18px; text-align:right; background-color:#66ccff; color:white;">有效期：</label>
+                    <span>2018/06/13</span>
+                </h4>  
+                <h4>
+                    <label style="width:20px; height:18px; line-height:18px; text-align:right; background-color:#66ccff; color:white;">余额：</label>
+                    <span class="font-icon-red">XXXXXXXXXXXXXXX</span>
+                </h4>
+                <h4>
+                    <label style="width:20px; height:18px; line-height:18px; text-align:right; background-color:#66ccff; color:white;">业务类型：</label>
+                    <span>XXXXXXXXXXXXXXXXXXXXXX</span>
+                </h4>
+                <h4>
+                    <label style="width:20px; height:18px; line-height:18px; text-align:right; background-color:#66ccff; color:white;">有效期：</label>
+                    <span>2018/06/13</span>
+                </h4>
+                <i class="am_iconfont am-icon-sx">&#xe674;</i>
+            </dd>
+            <!-- <div class="noDataBox ng-hide" ng-show="noData">
+                <div class="nodata">
+                    <img src="img/empty_page.png" width="70px">
+                    <span class="nodata_span">暂无数据</span>
+                </div>
+            </div> -->
+            <!-- <div class="loadingBox ng-hide" ng-show="loadingMore">
+                <ion-spinner icon="ios"></ion-spinner>
+                <h3>正在加载中</h3>
+            </div> -->
+        </dl>
+    </div>
+    <!-- <ion-infinite-scroll icon="ion-loading-c" ng-if="hasMore" on-infinite="loadMore()" distance="1%">
+        <div>正在加载中</div>
+    </ion-infinite-scroll> -->
+</ion-content>
+
+
+
+<!-- <ion-slide-box style="height:30px; line-height:30px;">
+    <ion-slide style="width:100% !important; overflow:scroll;">
+        <div style="width:120px; color:blue; display:inline-block;">
+            <h1>日常业务提示</h1>
+        </div>
+        <div style="width:120px; color:yellow; display:inline-block;">
+            <h1>业务提醒预警</h1>
+        </div>
+        <div style="width:120px; color:pink; display:inline-block;">
+            <h1>日常业务提示</h1>
+        </div>
+        <div style="width:120px; color:blue; display:inline-block;">
+            <h1>日常业务提示</h1>
+        </div>
+        <div style="width:120px; color:yellow; display:inline-block;">
+            <h1>业务提醒预警</h1>
+        </div>
+        <div style="width:120px; color:pink; display:inline-block;">
+            <h1>日常业务提示</h1>
+        </div>
+    </ion-slide>
+    <ion-slide style="width:100% !important;">
+        <div style="width:120px; color:blue; display:inline-block;">
+            <h1>日常业务提示</h1>
+        </div>
+        <div style="width:120px; color:yellow; display:inline-block;">
+            <h1>业务提醒预警</h1>
+        </div>
+        <div style="width:120px; color:pink; display:inline-block;">
+            <h1>日常业务提示</h1>
+        </div>
+    </ion-slide>
+    <ion-slide style="width:100% !important;">
+        <div style="width:120px; color:blue; display:inline-block;">
+            <h1>日常业务提示</h1>
+        </div>
+        <div style="width:120px; color:yellow; display:inline-block;">
+            <h1>业务提醒预警</h1>
+        </div>
+        <div style="width:120px; color:pink; display:inline-block;">
+            <h1>日常业务提示</h1>
+        </div>
+    </ion-slide>
+</ion-slide-box> -->

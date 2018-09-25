@@ -1,0 +1,19 @@
+<div class="bar-footer">
+	
+	<ul class="nav fixed"  style="display: flex;">
+		<!-- <li class="{{footActiveIndex==undefined || footActiveIndex==4?'txbg-active':'txbg'}}" ng-click="changeState('workRemind')">业务提醒</li> -->
+
+		<li class="{{footActiveIndex==undefined || footActiveIndex==4?'txbg-active':'txbg'}}" ng-click="changeState('workTips')">业务提醒</li>
+		 
+		<li class="{{footActiveIndex==undefined || footActiveIndex==0?'qpbg-active':'qpbg'}}" ng-click="changeState('RFexamine',{SelectTab:'0'})">业务签批</li>
+		
+		<!-- <li class="{{footActiveIndex==1?'jybg-active':'jybg'}}" ng-click="changeState('approveStatistical')">审批统计</li> -->
+		
+		<li  class="{{footActiveIndex==3?'acbg-active':'acbg'}}" ng-click="changeState('my')">我的
+		 <span style="position: absolute;top: 10%;height: 8px;width: 8px;border-radius: 5px;background-color: red;" ng-show="redPointShow"></span>
+		</li>
+
+		<li class="{{footActiveIndex==1?'dhgl-active':'dhgl'}}" ng-click="changeState('RFSysSel')">条线选择</li>
+
+	</ul>
+</div>

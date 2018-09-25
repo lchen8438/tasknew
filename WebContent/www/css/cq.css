@@ -1,0 +1,65 @@
+/**用户信息二级标题栏**/
+.cq_sub_header{
+	height: 45px;
+    text-align: center;
+    font-size: x-large;
+    padding-top: 12px !important;
+}
+
+.cq_left_content{
+    color: black !important;
+    font-size: 16px !important;
+}
+
+.cq_left_ul{
+	  border-radius: 15px;
+}
+
+/**角色表格样式**/
+.cq_td{
+	border-right: black 1px solid;
+    border-bottom: black 1px solid;
+}
+
+.cq_th{
+	vertical-align: middle;
+    border-right: black 1px solid;
+}
+
+.cq_tr{
+	border-bottom: black 2px solid;
+    font-size: 20px;
+    height: 40px;
+    text-align: center;
+}
+
+.cq_subtr{
+	border-bottom: black 1px solid;
+    font-size: 18px;
+    height: 40px;
+    text-align: center;
+}
+.cq_table{
+	text-align: center;
+    margin: 10%;
+    border: black 2px solid;
+}
+.cq_subtd{
+	vertical-align: middle;
+    border-right: black 1px solid;
+}
+
+.cq_bg{
+	background: #e1e1e1;
+}
+
+.cq_comfire{
+    position: relative;
+    height: 45px;
+    border-radius: 80px;
+    font-size: 20px;
+    width: 75%;
+    margin-top: 1%;
+    margin-left: 10%;
+    margin-right: 10%;
+}

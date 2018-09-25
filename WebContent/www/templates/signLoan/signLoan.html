@@ -1,0 +1,58 @@
+<!--签约放款-->
+<ion-view>
+	<ion-header-bar class="bar-positive" align-title="center">
+    	<div class="button am-back" ng-click="goBackSysSel()"></div>
+        <h1 class="title">签约放款</h1>
+    </ion-header-bar>
+<ion-header-bar class="bar-subheader am-sub-header">
+    <ul class="am-tab row " style="padding: 0px;">
+        <li class="col col-50" ng-class="{active:selectTab0}" ng-click="selectTab('0')">待处理</li>
+        <li class="col col-50" ng-class="{active:selectTab1}" ng-click="selectTab('1')">已完成</li>
+    </ul>
+</ion-header-bar>
+<ion-content ng-show="selectTab0" class="gray-main pos-box am-content-has-sub-header am-list arrow-list ng-hide"
+  ng-controller="PendingController" style="height:{{contentHeight}}px">
+    <ion-refresher on-refresh="refresh()"
+                   pulling-text="下拉刷新"
+                   refreshing-text="正在刷新中"
+                   refreshing-icon="android">
+    </ion-refresher>
+
+   <dd class="item am-button-default" ng-click="gotoSignLoanList(lob,1,1)">
+  		<div class="my_spot"><span class="badge badge-assertive" >{{item1}}</span></div>
+        <span class="">{{lob}}额度生效管理</span>
+        <i class="am_iconfont am-icon-sx">&#xe63e;</i>
+   </dd>
+   <dd class="item am-button-default" ng-click="gotoSignLoanList(lob,2,1)">
+  		<div class="my_spot"><span class="badge badge-assertive" >{{item2}}</span></div>
+        <span class="">{{lob}}额度提用管理</span>
+        <i class="am_iconfont am-icon-sx">&#xe63e;</i>
+   </dd>
+</ion-content>
+
+<ion-content ng-show="selectTab1" class="gray-main pos-box am-content-has-sub-header am-list arrow-list ng-hide" 
+	ng-controller="PendedController" style="height:{{contentHeight}}px">
+    <ion-refresher on-refresh="refresh()"
+                   pulling-text="下拉刷新"
+                   refreshing-text="正在刷新中"
+                   refreshing-icon="android">
+    </ion-refresher>
+
+   <dd class="item am-button-default" ng-click="gotoSignLoanList(lob,1,2)">
+  		<div class="my_spot"><span class="badge badge-assertive" >{{item1}}</span></div>
+        <span class="">{{lob}}额度生效管理</span>
+        <i class="am_iconfont am-icon-sx">&#xe63e;</i>
+   </dd>
+   <dd class="item am-button-default" ng-click="gotoSignLoanList(lob,2,2)">
+  		<div class="my_spot"><span class="badge badge-assertive" >{{item2}}</span></div>
+        <span class="">{{lob}}额度提用管理</span>
+        <i class="am_iconfont am-icon-sx">&#xe63e;</i>
+   </dd>
+</ion-content>
+	<ion-footer-bar>
+        <div ng-include="'templates/global/nav.html'" style="width: 100%"></div>
+    </ion-footer-bar>
+
+</ion-view>
+
+

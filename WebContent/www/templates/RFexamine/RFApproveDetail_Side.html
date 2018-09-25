@@ -1,0 +1,154 @@
+<ion-side-menus>
+    <!-- 中间内容 -->
+    <ion-side-menu-content>
+        <ion-header-bar class="bar-positive" align-title="center">
+            <div class="button am-back" ng-click="goBackList()"></div>
+            <h1 class="title" style="left:0;">{{SideMenu}}</h1>
+            <div class="buttons">
+                <button menu-toggle="right" class="button button-icon icon ion-navicon tab_button"></button>
+            </div>
+        </ion-header-bar>
+
+        <ion-content style="background: #f0effe;" class="gray-main" style="width: {{contentWidth}}px;" delegate-handle="smallScroll01">
+
+
+            <!-- 通用模板加载 -->
+            <div style="background:#fff;" ng-show="BasicTempletShow" ng-controller="BasicTempletController">
+                <div ng-include="'templates/RFexamine/BasicTemplet.html'" style="width: 100%"></div>
+            </div>
+
+
+
+            <!-- 通用模板加载BA、Html -->
+            <div style="background:#fff;" ng-show="BasicTempletBAHtmlShow" ng-controller="BasicTempletBAHtmlController">
+                <div ng-bind-html="reportInfo.ReportData" id="jh-html-container"></div>
+            </div>
+
+
+            <!-- 通用Html -->
+            <div style="background:#fff;" ng-show="BasicHtmlShow" ng-controller="BasicHtmlController">
+                <ion-scroll ng-show="!noData" zooming="true" direction="xy" style="width: 100%; height: {{contentHeight+20}}px">
+                    <div style="width: 100%;" ng-bind-html="report.ReportData" id="rf-html-container"></div>
+                </ion-scroll>
+                <div style="background: #f0effe;" class="noDataBox" ng-show="noData">
+                    <div class="nodata">
+                        <img src="img/empty_page.png" width="70px">
+                        <span class="nodata_span">调查报告还未生成</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 历史意见列表 -->
+            <div ng-show="BasicOPHListShow" ng-controller="BasicOPHListController">
+                <dd style="width:97%;" class="item am-button-default worktip_item" ng-repeat="item in items">
+                    <table class="bm_tb_list">
+                        <tbody>
+                            <tr style="border-bottom:0px solid;" ng-show="item.attribute0name.length>0">
+                                <td style="width:30%;"> {{item.attribute0name}}： </td>
+                                <td>
+                                    <span style="font-weight:600; color:#666;">{{item.attribute0}}</span>
+                                </td>
+                            </tr>
+                            <tr style="border-bottom:0px solid;" ng-show="item.attribute1name.length>0">
+                                <td style="width:30%;"> {{item.attribute1name}}： </td>
+                                <td> {{item.attribute1}}</td>
+                            </tr>
+                            <tr style="border-bottom:0px solid;" ng-show="item.attribute2name.length>0">
+                                <td style="width:30%;"> {{item.attribute2name}}： </td>
+                                <td>{{item.attribute2}}</td>
+                            </tr>
+                            <tr style="border-bottom:0px solid;" ng-show="item.attribute3name.length>0">
+                                <td style="width:30%;"> {{item.attribute3name}}： </td>
+                                <td> {{item.attribute3}}</td>
+                            </tr>
+                            <tr style="border-bottom:0px solid;" ng-show="item.attribute4name.length>0">
+                                <td style="width:30%;"> {{item.attribute4name}}： </td>
+                                <td> {{item.attribute4}}</td>
+                            </tr>
+                            <tr style="border-bottom:0px solid;" ng-show="item.attribute20name.length>0">
+                                <td style="width:30%;"> {{item.attribute20name}}： </td>
+                                <td> {{item.attribute20}}</td>
+                            </tr>
+                            <tr style="border-bottom:0px solid;" ng-show="item.attribute21name.length>0">
+                                <td style="width:30%;"> {{item.attribute21name}}： </td>
+                                <td> {{item.attribute21}}</td>
+                            </tr>
+                            <tr style="border-bottom:0px solid;" ng-show="item.attribute22name.length>0">
+                                <td style="width:30%;"> {{item.attribute22name}}： </td>
+                                <td>{{item.attribute22}}</td>
+                            </tr>
+                            <tr style="border-bottom:0px solid;" ng-show="item.attribute23name.length>0">
+                                <td style="width:30%;"> {{item.attribute23name}}： </td>
+                                <td> {{item.attribute23}}</td>
+                            </tr>
+                            <tr style="border-bottom:0px solid;" ng-show="item.attribute24name.length>0">
+                                <td style="width:30%;"> {{item.attribute24name}}： </td>
+                                <td> {{item.attribute24}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- <i class="am_iconfont font-icon-oranger">&#xe6b3;</i> -->
+                </dd>
+                <div style="background: #f0effe;" class="noDataBox" ng-show="noData">
+                    <div class="nodata">
+                        <img src="img/empty_page.png" width="70px">
+                        <span class="nodata_span">暂无数据</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 各级意见列表 -->
+            <div style="background:#fff;" ng-show="BasicOPLListShow" ng-controller="BasicOPLListController">
+                <div ng-include="'templates/RFexamine/BasicOPLList.html'" style="width: 100%"></div>
+            </div>
+
+
+            <!-- 额度切分列表（特殊处理） -->
+            <div style="background:#fff;" ng-show="CLDListShow" ng-controller="CLDListController">
+                <div ng-include="'templates/RFexamine/CLDList.html'" style="width: 100%"></div>
+            </div>
+            <!-- 签署意见列表（特殊处理） -->
+            <div style="background:#fff;" ng-show="opinionListShow" ng-controller="opinionListController">
+                <div ng-include="'templates/RFexamine/opinionList.html'" style="width: 100%"></div>
+            </div>
+
+        </ion-content>
+
+        <ion-footer-bar ng-show="finished == '0'">
+            <div class="btn-box row" ng-show="FlowNo!='CustomerRightFlow'" style="width:{{contentWidth}}px">
+                <div class="col">
+                    <button type="button" ng-if="BatFlag1" class="examine-button-red" ng-click="backTobc()">退回补充资料</button>
+                    <button type="button" ng-if="BatFlag2" class="examine-button-red" ng-click="backToAnyNode()">退回任意阶段</button>
+                </div>
+               <!--  <div class="col">
+                    <button type="button" ng-if="BatFlag2" class="examine-button-red" ng-click="backToAnyNode()">退回任意阶段</button>
+                </div> -->
+                <div class="col">
+                    <button type="button" ng-show="FlowNo!='BatCreditApproveFlow'" class="examine-button-blue" ng-click="SaveOpinion()">意见保存</button>
+                    <button type="button" ng-show="FlowNo=='BatCreditApproveFlow'" class="examine-button-blue" ng-click="saveOpinionList()">批量意见保存</button>
+                </div>
+                <div class="col">
+                    <button type="button" class="examine-button-red" ng-click="DoSubmit()">提交</button>
+                </div>
+            </div>
+            <div class="btn-box row" ng-show="FlowNo=='CustomerRightFlow'" style="width:{{contentWidth}}px">
+                <div class="col">
+                    <button type="button" class="examine-button-red" ng-click="DoSubmit()">提交</button>
+                </div>
+            </div>
+        </ion-footer-bar>
+    </ion-side-menu-content>
+
+    <!-- 右侧菜单 -->
+    <ion-side-menu style="background: #f0effe;" side="right" width="200">
+        <header style="background: linear-gradient(#5db5fe, #1cf2fe); width: 97%; margin: auto;" class="bar bar-header bar-stable">
+            <h1 style="color:#fff;" class="title">详情菜单</h1>
+        </header>
+        <ion-content style="top:40px !important;" class="has-header">
+            <dl style="padding-top:4px;" class="side-list">
+                <dd style="width:97%;" class="item am-button-default slide-item worktip_item" ng-repeat="item in items" nav-clear menu-close
+                    ng-click="selectDetailTab(item)">{{item.Tab}}</dd>
+            </dl>
+        </ion-content>
+    </ion-side-menu>
+</ion-side-menus>

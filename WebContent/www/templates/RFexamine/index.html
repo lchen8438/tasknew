@@ -1,0 +1,56 @@
+<ion-view>
+	<ion-header-bar align-title="center" class="bar-positive">
+		<h1 class="title">业务签批</h1>
+	</ion-header-bar>
+	<ion-header-bar class="bar-subheader am-sub-header">
+		<ul class="am-tab row">
+			<li class="col col-50" ng-class="{active:selectTab0}" ng-click="selectTab('0')">当前工作</li>
+			<li class="col col-50" ng-class="{active:selectTab1}" ng-click="selectTab('1')">已完成</li>
+		</ul>
+	</ion-header-bar>
+	<ion-content style="background:#f0effe;" class="gray-main pos-box am-content-has-sub-header am-list arrow-list" ng-controller="ApproveWorkCountController">
+		<div class="flex_examine">
+			<ion-refresher on-refresh="refresh()" pulling-text="下拉刷新" refreshing-text="正在刷新中" spinner="ios"> </ion-refresher>
+			<div ng-repeat="obj in items" style="width: 95%; margin: 5px auto 0px auto;">
+				<div style="border-radius: 5px; background: #fff;">
+					<div>
+						<i ng-if="!noData">
+							<div class="examine_title" ng-click="togglePhaseNo(obj)" ng-class="{active: obj.ShowFlag}">
+								<img src="img/icon_title.png" class="icon_title" /> {{obj.FlowName}}
+								<div class="my_spot">
+									<span class="badge badge-assertive">{{obj.WorkCount}}</span>
+								</div>
+							</div>
+						</i>
+					</div>
+					<div class="item_show">
+						<i ng-show="obj.ShowFlag" ng-repeat="phaseInfo in obj.PhaseNo">
+							<div class="examine-item" ng-click="approveList(phaseInfo)" ng-class="{active: phaseInfo.ShowFlag}">
+								<img src="img/icon-arrow.png" />
+								<span style="color:#292929;"> {{phaseInfo.PhaseName}}</span>
+								<div class="my_spot">
+									<span style="color:#9d9d9d">共
+										<label style="color:#af3737; font-size:18px;">{{phaseInfo.WorkCount}}</label>件</span>
+								</div>
+							</div>
+						</i>
+					</div>
+				</div>
+			</div>
+			<div style="background: #f0effe;" class="noDataBox" ng-show="noData">
+				<div class="nodata">
+					<img src="img/empty_page.png" width="70px">
+					<span class="nodata_span">暂无数据</span>
+				</div>
+			</div>
+			<div class="loadingBox" ng-show="loadingMore">
+				<ion-spinner icon="ios"></ion-spinner>
+				<h3>正在加载中</h3>
+			</div>
+			<ion-infinite-scroll icon="ion-loading-c" on-infinite="loadMore()" ng-if="hasMore && selectTab0" distance="1%"> </ion-infinite-scroll>
+		</div>
+	</ion-content>
+	<ion-footer-bar>
+		<div ng-include="'templates/global/nav.html'" style="width: 100%"></div>
+	</ion-footer-bar>
+</ion-view>

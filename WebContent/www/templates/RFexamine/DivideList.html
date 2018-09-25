@@ -1,0 +1,41 @@
+<!--切分项信息-->
+<div class="modal_father"></div>
+<ion-modal-view class="modal_view">
+    <ion-header-bar align-title="center" class="bar-positive">
+        <div>
+            <button class="button button-clear" ng-click="hideModal()">
+                <i class="ion ion-close" style="font-size: 20px;margin-left: 10px;margin-top: 12px;color:#fff"></i>
+            </button>
+        </div>
+        <h4 class="title">切分项信息</h4>
+    </ion-header-bar>
+    <ion-content style="background: #f0effe;" delegate-handle="smallScroll">
+        <table style="background:#fff; width:97%;" class="bm_tb_list worktip_item" style="border:0.5px solid #bbb1b1;" ng-repeat="item in DivideList">
+            <tr>
+                <td class="td_width_30">切分信息:</td>
+                <td>
+                    <span style="font-weight:600; color:#666;">{{item.DivideName}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="td_width_30">币种:</td>
+                <td style="font-size: 0.8rem; color: #111;">{{item.CurrencyName}}</td>
+            </tr>
+            <tr>
+                <td class="td_width_30">敞口金额(元):</td>
+                <td>
+                    <input type="text" onkeyup="value=value.replace(/[^\d.]/g,'').replace(/^\./g,'').replace('.','$#$').replace(/\./g,'').replace('$#$','.').replace(/^(\-)*(\d+)\.(\d\d).*$/,'$1$2.$3')"
+                        class="m-divide-input" ng-model="item.ExposureSum" maxlength="30" />
+                </td>
+            </tr>
+        </table>
+    </ion-content>
+
+    <ion-footer-bar>
+        <div class="btn-box row" style="width:{{contentWidth}}px">
+            <div class="col">
+                <button type="button" class="examine-button-blue" ng-click="saveDivideList(DivideList)">保存</button>
+            </div>
+        </div>
+    </ion-footer-bar>
+</ion-modal-view>

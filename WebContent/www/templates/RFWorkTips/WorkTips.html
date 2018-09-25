@@ -1,0 +1,65 @@
+<ion-view>
+    <ion-header-bar class="bar-positive" align-title="center">
+        <h1 class="title">工作提示</h1>
+    </ion-header-bar>
+    <ion-header-bar class="bar-subheader am-sub-header">
+        <ul class="am-tab row">
+            <li class="col col-50" ng-class="{active:selectTab0}" ng-click="selectTask('0')">任务提示</li>
+            <li class="col col-50" ng-class="{active:selectTab1}" ng-click="selectTask('1')">到期提醒</li>
+        </ul>
+    </ion-header-bar>
+
+    <ion-content style="background: #f0effe;" class="gray-main pos-box am-content-has-sub-header am-list ">
+        <div ng-show="selectTab0">
+            <dl style="background: #f0effe;">
+                <dd style="width:97%;" class="worktip_item item" ng-repeat="item in items" ng-click="gotoTaskList(item,$index)"
+                    ng-class="{'item-selected': $index == selectedRow}" ng-if="item.TaskNumber!=0">
+                    <!-- <div class="my_spot">
+                        <span class="badge badge-assertive">{{item.TaskNumber}}</span>
+                    </div> -->
+                    <div class="triangle">
+                        <span><label>{{item.TaskNumber}}</label>件</span>
+                    </div>
+                    <p style="margin-left:15% !important;" class="font_s16 worktip_p">
+                        {{item.ItemName}}
+                    </p>
+                    <!-- <i class="am_iconfont font-icon-oranger">{{item.IconCode}}</i> -->
+                    <i class="am_iconfont font-icon-blue">&#xe6c0;</i>
+                </dd>
+            </dl>
+        </div>
+
+        <div ng-show="selectTab1">
+            <dl style="background: #f0effe;">
+                <dd style="width:97%;" class="item worktip_item" ng-repeat="item in items" ng-click="gotoTaskList(item,$index)"
+                    ng-class="{'item-selected': $index == selectedRow}">
+                    <!-- <div class="my_spot">
+                        <span class="badge badge-assertive">{{item.ItemNumber}}</span>
+                    </div> -->
+                    <div class="triangle">
+                        <span><label>{{item.ItemNumber}}</label>件</span>
+                    </div>
+                    <p style="margin-left:15% !important;" class="font_s16 worktip_p">
+                        {{item.ItemName}}
+                    </p>
+                    <div>
+                        <i class="am_iconfont font-icon-blue" ng-if="item.ItemAttribute == '010' ">&#xe62a;</i>
+                        <i class="am_iconfont font-icon-oranger" ng-if="item.ItemAttribute == '020' ">&#xe62a;</i>
+                        <i class="am_iconfont font-icon-red" ng-if="item.ItemAttribute == '030' ">&#xe62a;</i>
+                    </div>
+                </dd>
+            </dl>
+        </div>
+
+        <div style="background: #f0efff;" class="noDataBox" ng-show="noData">
+            <div class="nodata">
+                <img src="img/empty_page.png" width="70px">
+                <span class="nodata_span">您的高效处理，暂无任务</span>
+            </div>
+        </div>
+    </ion-content>
+
+    <ion-footer-bar>
+        <div ng-include="'templates/global/nav.html'" style="width: 100%"></div>
+    </ion-footer-bar>
+</ion-view>

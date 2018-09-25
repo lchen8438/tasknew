@@ -1,0 +1,14 @@
+<ion-header-bar align-title="center" class="bar-positive">
+    <h1 class="title">条线选择</h1>
+</ion-header-bar>
+
+<ion-content style="background:#f0effe;" class="gray-main" ng-controller="SysSelController">
+    <div class="flex-sysSel">
+        <div class="sysSel-inner">
+            <img src="img/ct_small.png" class="ct_small" ng-click="goToCTXD()" ng-show="ct_small" />
+            <img src="img/jr_small.png" class="jr_small" ng-click="goToJRBK()" ng-show="jr_small"/>
+            <img src="img/ct_big.png" class="ct_big" ng-show="ct_big" />
+            <img src="img/jr_big.png" class="jr_big" ng-show="jr_big" />
+        </div>
+    </div>
+</ion-content>

@@ -1,0 +1,21 @@
+                     <ion-view style="width:{{contentWidth}}px"> 
+                        <ion-header-bar align-title="center" class="bar-positive">
+                         <div class="button am-back" ng-click="gotoMyID()"></div>
+                            <h1 class="title">角色信息</h1>
+                        </ion-header-bar>
+                        <ion-content class="gray-main">
+                       <table class="lc_tb_list  cq_table" >
+                        <tbody>
+                           <tr class="cq_tr">
+                                <th class="cq_th">角色编号</th>
+                                <th class="cq_th">角色名称</th>
+                           </tr>
+                <tr ng-repeat = "array in dataArray track by $index"  class="cq_subtr">
+                    <td class="td_width_40  cq_subtd">{{array.RoleID}}</td>
+                    <td class="cq_subtd " style="width:{{contentWidth/2}}px">{{array.RoleName}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </ion-content>
+       </ion-view>
+  

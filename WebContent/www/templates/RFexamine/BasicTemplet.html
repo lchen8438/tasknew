@@ -1,0 +1,21 @@
+<table class="bm_tb_list" ng-repeat="item in items">
+	<thead ng-click="showOrNot(item)">
+		<tr>
+			<th colspan="2">{{item.groupName}}</label>
+				<i class="icon-float-right" ng-class="item.showGroup?'ion-chevron-up':'ion-chevron-down'"></i>
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="obj in item.groupColArray" ng-show="item.showGroup">
+			<td class="td_width_30">{{obj.KeyName}}:</td>
+			<td>{{obj.Value}}</td>
+		</tr>
+	</tbody>
+</table>
+<div style="background: #f0effe;" class="noDataBox" ng-show="noData">
+	<div class="nodata">
+		<img src="img/empty_page.png" width="70px">
+		<span class="nodata_span">暂无数据</span>
+	</div>
+</div>

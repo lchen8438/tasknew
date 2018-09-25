@@ -1,0 +1,31 @@
+<ion-view>
+    <ion-header-bar class="bar-positive" align-title="center">
+        <div class="button am-back" ng-click='goBack()'></div>
+        <h1 class="title">增加日志</h1>
+    </ion-header-bar>
+    <ion-content style="background: #f0effe;" class="gray-main">
+        <div class="flex-logadd">
+            <ul class="am-input-list">
+                <li>
+                    <input class="am-text" type="text" placeholder="请输入日志摘要" ng-model="log.WorkBrief">
+                </li>
+                <li>
+                    <select class="am-select" ng-model="ItemNo" id='worktype' ng-options="option.ItemNO as option.ItemName for option in WorkType">
+                        <option value="">请选择工作类型</option>
+                    </select>
+                </li>
+                <li>
+                    <h3>日志内容：</h3>
+                </li>
+                <li class="am-input-list_text">
+                    <textarea class="am-text" type="text" placeholder="" ng-model="log.WorkContent" style="height: 120px"></textarea>
+                </li>
+            </ul>
+        </div>
+        <div class="btn-box row">
+            <div class="col">
+                <button class="am-button am-button-blue" type="button" ng-click="dosave()">保存并提交</button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

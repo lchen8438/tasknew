@@ -1,0 +1,38 @@
+<div class="modal_father"></div>
+<ion-modal-view class="modal_view">
+    <ion-header-bar class="bar-positive" align-title="center">
+        <button class="button button-clear" ng-click="hideModal()">
+            <i class="ion ion-close" style="font-size: 20px;margin-left: 10px;margin-top: 12px;color:#fff"></i>
+        </button>
+        <h1 class="title">风险探测结果</h1>
+    </ion-header-bar>
+    <ion-content delegate-handle="smallScroll">
+        <table class="bm_tb_list" ng-repeat="risk in RiskResult">
+            <thead>
+                <tr>
+                    <th colspan="4">{{risk.groupName}}</th>
+                </tr>
+            </thead>
+            <tbody ng-repeat="citem in risk.CheckItem">
+                <tr style="border-bottom:1px dashed #e1e1e1; min-height:50px;">
+                    <td style="width: 30%; text-align: left; vertical-align: middle;">{{citem.itemName}}</td>
+                    <td style="width: 3%; text-align: center; vertical-align: middle;">
+                        <i ng-if="citem.passFlag=='true'" class="ion ion-checkmark font-icon-blue"></i>
+                        <i ng-if="citem.passFlag=='false'" class="ion ion-close font-icon-red"></i>
+                    </td>
+                    <td style="width: 66%;text-align: center; vertical-align: middle;">
+                        <h5 ng-if="citem.passFlag=='true'" style="color:rgb(39, 219, 150);">{{citem.passMessage}}</h5>
+                        <h5 ng-if="citem.passFlag=='false'" style="color: #ee3030;">{{citem.passMessage}}</h5>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </ion-content>
+    <ion-footer-bar>
+        <div class="btn-box row" ng-show="FlowNo!='CustomerRightFlow'" style="width:{{contentWidth}}px">
+            <div class="col">
+                <button type="button" class="examine-button-red" ng-click="hideModal()">取消</button>
+            </div>
+        </div>
+    </ion-footer-bar>
+</ion-modal-view>

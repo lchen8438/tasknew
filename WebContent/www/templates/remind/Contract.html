@@ -1,0 +1,38 @@
+<ion-view>
+    <ion-header-bar class="bar-positive" align-title="center">
+        <div class="button am-back" ng-click="goBack()"></div>
+        <h1 class="title">{{ItemName}}</h1>
+    </ion-header-bar>
+    <ion-content class="gray-main">
+        <ion-refresher on-refresh="refresh()"
+                       pulling-text="下拉刷新"
+                       refreshing-text="正在刷新中"
+                       spinner="ios">
+        </ion-refresher>
+
+        <dl class="am-list business-list">
+            <dd class="item" ng-repeat="item in items">
+                <h3>{{item.CustomerName}}</h3>
+                <h4>{{item.BusinessType}},{{item.OccurType}}</h4>
+                <h4>{{item.BusinessCurrency}},<span class="font-icon-red">{{item.BusinessSum|currency:''}}</span></h4>
+                <i class="am_iconfont am-icon-sx">{{IconCode}}</i>
+            </dd>
+            <div class="noDataBox" ng-show="noData">
+                <div class="nodata">
+                    <img src="img/empty_page.png" width="70px">
+                    <span class="nodata_span">暂无数据</span>
+                </div>
+            </div>
+            <div class="loadingBox" ng-show="loadingMore">
+                <ion-spinner icon="ios"></ion-spinner>
+                <h3>正在加载中</h3>
+            </div>
+        </dl>
+        <ion-infinite-scroll icon="ion-loading-c"
+                             ng-if="hasMore"
+                             on-infinite="loadMore()"
+                             distance="1%">
+            <div>正在加载中</div>
+        </ion-infinite-scroll>
+    </ion-content>
+</ion-view>

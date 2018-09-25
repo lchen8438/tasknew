@@ -1,0 +1,48 @@
+<div ng-show="nextActionShowFlag">
+    <ion-header-bar align-title="center" class="bar-positive">
+        <div ng-click="goToSignOpinion()">
+            <button class="button button-clear" ng-click="goToSignOpinion()">
+                <i class="ion ion-chevron-left" style="font-size: 25px;margin-left: 10px;margin-top: 12px;color:#fff"></i>
+            </button>
+        </div>
+        <h1 class="title">下一阶段动作选择</h1>
+    </ion-header-bar>
+    <ion-content class="gray-main">
+        <!--</div>-->
+        <ul class="checkList">
+            <li>
+                <div class="am-label">提交动作选择：</div>
+            </li>
+            <li ng-repeat="obj in nextPhaseOpinions" ng-click="choosePhaseOpinion(obj)">
+                <input name="nextActionItem" class="am-checkbox" type="radio" ng-model="action.choose"
+                       ng-click="choosePhaseOpinion(obj)" ng-value="obj"/>
+                <div class="checkLabel">{{obj.phaseOpinion}}</div>
+            </li>
+            <li ng-show="showNextPhaseAction">
+                <div class="am-label">选择下一阶段处理人：</div>
+            </li>
+            <li ng-show="showNextPhaseAction" ng-repeat="obj in nextPhaseActions"
+                ng-click="chooseNextPhaseAction(obj)">
+                <input name="nextActionOperatorItem" class="am-checkbox" type="radio" ng-model="person.choose"
+                       ng-click="chooseNextPhaseAction(obj)" ng-value="obj">
+                <div class="checkLabel">{{obj.nextPhaseAction}}</div>
+            </li>
+        </ul>
+        <dl class="am-list notice-list_a" ng-show="showNextPhaseInfo">
+            <dd>
+                <h3 class="am-button"><span>{{nextPhaseInfo}}</span></h3>
+            </dd>
+        </dl>
+
+    </ion-content>
+    <ion-footer-bar>
+
+        <div class="col ">
+            <button type="button" class="am-button am-button-red" ng-click="hideModal()">放弃</button>
+        </div>
+        <div class="col">
+            <button type="button" class="am-button am-button-blue" ng-click="submitApply()">提交</button>
+        </div>
+
+    </ion-footer-bar>
+</div>

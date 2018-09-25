@@ -1,0 +1,21 @@
+<dd class="item am-button-default" ng-repeat="item in items" ng-click="gotoApplyInfo(item)">
+    <h3 ng-show="item.attribute0name.length>0">{{item.attribute0name}}：
+        <span style="font-weight:600; color:#666;">{{item.attribute0}}</span>
+    </h3>
+    <h4 ng-show="item.attribute1name.length>0">{{item.attribute1name}}：{{item.attribute1}}</h4>
+    <h4 ng-show="item.attribute2name.length>0">{{item.attribute2name}}：{{item.attribute2}}</h4>
+    <h4 ng-show="item.attribute3name.length>0">{{item.attribute3name}}：{{item.attribute3}}</h4>
+    <h4 ng-show="item.attribute4name.length>0">{{item.attribute4name}}：{{item.attribute4}}</h4>
+    <h4 ng-show="item.attribute20name.length>0">{{item.attribute20name}}：{{item.attribute20}}</h4>
+    <h4 ng-show="item.attribute21name.length>0">{{item.attribute21name}}：{{item.attribute21}}</h4>
+    <h4 ng-show="item.attribute22name.length>0">{{item.attribute22name}}：{{item.attribute22}}</h4>
+    <h4 ng-show="item.attribute23name.length>0">{{item.attribute23name}}：{{item.attribute23}}</h4>
+    <h4 ng-show="item.attribute24name.length>0">{{item.attribute24name}}：{{item.attribute24}}</h4>
+    <i class="am_iconfont font-icon-oranger">&#xe6b3;</i>
+</dd>
+<div style="background: #f0effe;" class="noDataBox" ng-show="noData">
+    <div class="nodata">
+        <img src="img/empty_page.png" width="70px">
+        <span class="nodata_span">暂无数据</span>
+    </div>
+</div>

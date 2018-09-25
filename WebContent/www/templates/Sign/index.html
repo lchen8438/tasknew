@@ -1,0 +1,28 @@
+<ion-view class="sign-img">
+    <ion-content>
+        <div class="flex-div">
+            <div class="sign-input-list">
+                <div class="sign-img-center">
+                    <img src="img/icon-login-logo.png">
+                </div>
+                <div class="sign-title">
+                    <h1 class="title">移动审批</h1>
+                </div>
+                <div class="login-li-user">
+                    <img src="img/icon-login-user.png" class="login-li-img" />
+                    <input class="login-input" type="text" placeholder="用户名" ng-model="user.UserId" ng-focus="getfocusUserId()" ng-blur="getblur()">
+                    <a href="javascript:;" class="search-cancel-button" ng-click="cleanUserId()" ng-show="showCleanUserId"></a>
+                </div>
+                <div class="login-li-pwd">
+                    <img src="img/icon-login-password.png" class="login-li-img" />
+                    <input class="login-input" type="{{eyeshow?'text':'password'}}" placeholder="用户密码" ng-model="user.UserPwd" ng-focus="getfocusUserPwd()"
+                        ng-blur="getblur()">
+                    <div class="eye" ng-click="eyeshow=!eyeshow" ng-class="eyeshow?'icon ion-ios-eye-outline':'icon ion-ios-eye'"></div>
+                </div>
+            </div>
+            <div class="btn-box row">
+                <button type="button" style="margin: 0 auto;width:66%;" class="am-button am-button-blue sign-button" ng-click="logon()">登 录</button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

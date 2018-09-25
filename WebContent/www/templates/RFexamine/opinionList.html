@@ -1,0 +1,73 @@
+<table class="bm_tb_list" ng-repeat="item in items">
+    <thead ng-click="showNextLevel(item)">
+        <tr>
+            <th colspan="2">客户编号:{{item.CustomerID}}
+                <i class="icon-float-right" ng-class="item.ShowFlag?'ion-chevron-up':'ion-chevron-down'"></i>
+            </th>
+        </tr>
+    </thead>
+    <tbody ng-show="item.ShowFlag">
+        <tr>
+            <td class="td_width_30">客户名称:</td>
+            <td>{{item.CustomerName}}</td>
+        </tr>
+        <tr>
+            <td class="td_width_30">批准金额:</td>
+            <td>{{item.BusinessSum}}</td>
+        </tr>
+        <tr>
+            <td class="td_width_30">贷款用途:</td>
+            <td>{{item.PURPOSE}}</td>
+        </tr>
+        <tr>
+            <td class="td_width_30">期限(月):</td>
+            <td>{{item.TermMonth}}</td>
+        </tr>
+        <tr>
+            <td class="td_width_30">授信到期日:</td>
+            <td>{{item.IRSEXPIRYDATE}}</td>
+        </tr>
+        <tr ng-show="PhaseNo!='0040'&&!(PhaseNo=='0030'&&item.IsLeader=='1')">
+            <td class="td_width_30">意见:</td>
+            <td>
+                <select ng-model="item.PhaseOpinion1" >
+                    <option value="1">同意</option>
+                    <option value="2">否决</option>
+                    <option value="3" ng-show="PhaseNo!='0030'">退回补充资料</option>
+                </select>
+            </td>
+        </tr>
+        <tr ng-show="PhaseNo!='0040'&&!(PhaseNo=='0030'&&item.IsLeader=='1')">
+            <td class="td_width_30">意见详情:</td>
+            <td>
+                <input type="text" ng-model="item.PhaseOpinion3" />
+            </td>
+        </tr>
+        <tr ng-show="PhaseNo=='0040'||PhaseNo=='0030'&&item.IsLeader=='1'">
+            <td class="td_width_30">汇总意见:</td>
+            <td>{{item.PHASECHOICE}}</td>
+        </tr>
+        <tr ng-show="!(PhaseNo=='0040'||PhaseNo=='0030'&&item.IsLeader=='1')">
+            <td class="td_width_30">阶段名称:</td>
+            <td>{{item.PhaseOpinion2}}</td>
+        </tr>
+        <tr>
+            <td class="td_width_30">登记人:</td>
+            <td>{{item.InputUser}}</td>
+        </tr>
+        <tr>
+            <td class="td_width_30">登记机构:</td>
+            <td>{{item.InputOrg}}</td>
+        </tr>
+        <tr ng-show="!(PhaseNo=='0040'||PhaseNo=='0030'&&item.IsLeader=='1')">
+            <td class="td_width_30">更新日期:</td>
+            <td>{{item.UpdateTime}}</td>
+        </tr>
+    </tbody>
+</table>
+<div style="background: #f0effe;" class="noDataBox" ng-show="noData">
+    <div class="nodata">
+        <img src="img/empty_page.png" width="70px">
+        <span class="nodata_span">暂无数据</span>
+    </div>
+</div>

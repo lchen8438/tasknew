@@ -1,0 +1,25 @@
+<ion-view>
+    <ion-header-bar class="bar-positive" align-title="center">
+        <div class="button am-back" ng-click="goBack()"></div>
+        <h1 class="title">关于</h1>
+    </ion-header-bar>
+    <ion-content style="background: #f0effe;" class="gray-main">
+        <dl style="background: #f0effe;" class="am-list notice-list">
+            <div class="sign-img-center2">
+                <h3 class="padding-room">移动终端</h3>
+
+                <div><img src="img/rf_about.png"></div>
+                <span class="padding-room">当前版本：V{{version.Version}}</span>
+            </div>
+            <dd style="width:97%;" class="worktip_item item">
+                <h3 ng-click="renovate()"><span>版本检查</span></h3>
+                <span style="position: absolute;right: 3%;bottom: 28%;background-color: red;border-radius: 10px;
+                           width: 45px;height: 18px;text-align: center;color: white;font-size: 13px;" ng-show="redPointShow">New</span>
+            </dd>
+            <dd style="width:97%;" class="worktip_item item">
+                <h3 ng-click="explain()"><span>版本说明</span></h3>
+            </dd>
+
+        </dl>
+    </ion-content>
+</ion-view>

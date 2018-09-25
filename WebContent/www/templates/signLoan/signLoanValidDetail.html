@@ -1,0 +1,113 @@
+<!-- 额度生效详情tab页 -->
+    <ion-header-bar class="bar-positive" align-title="center">
+    	<div class="button am-back" ng-click="goBackList()"></div>
+    	<div ng-show="!selectTab0" style = "position:absolute;position: absolute;right: 8px;top:10px" ng-click="validNotice()">生效通知书</div>
+        <h1 class="title">额度生效详情</h1>
+    </ion-header-bar>
+    
+    <ion-header-bar class="bar-subheader am-sub-header" ng-style="{'width':'{{contentWidth}}px'}">
+     <ul class="am-tab row " style="padding: 0px;">
+        <li class="col col-25" ng-class="{active:selectDetailTab0}" ng-click="selectDetailTab('0')">生效详情</li>
+        <li class="col col-25" ng-class="{active:selectDetailTab1}" ng-click="selectDetailTab('1')">合同详情 </li>
+        <li class="col col-25" ng-class="{active:selectDetailTab2}" ng-click="selectDetailTab('2')">申请详情 </li>
+        <li class="col col-25" ng-class="{active:selectDetailTab3}" ng-click="selectDetailTab('3')">客户详情 </li>
+    </ul>
+	</ion-header-bar>
+      <div class="ui-wrap" ng-show="selectDetailTab0" ng-controller="ValidDetailController">
+            <ion-content  class="gray-main am-content-has-sub-header am-list arrow-list "  
+                     style="width: {{contentWidth}}px; top:60px ;margin-top: 6.5%;" delegate-handle="smallScroll01">
+             <table class="bm_tb_list" ng-repeat="item in items">
+                 <thead ng-click="showOrNot(item)">
+                 <tr>
+                     <th colspan="2">{{item.groupName}}</label>
+                         <i class="icon-float-right"
+                            ng-class="item.showGroup?'ion-chevron-up':'ion-chevron-down'"></i>
+                     </th>
+                 </tr>
+                 </thead>
+                 <tbody>
+                 <tr ng-repeat="obj in item.groupColArray" ng-show="item.showGroup">
+                     <td class="td_width_30">{{obj.KeyName}}：</td>
+                     <td>{{obj.Value}}</td>
+                 </tr>
+                 </tbody>
+             </table>
+            </ion-content>
+        </div>
+     
+        <div class="ui-wrap" ng-show="selectDetailTab1" ng-controller="ContractDetailController">
+	        <ion-content class="gray-main am-content-has-sub-header am-list arrow-list "  
+	                        style="width: {{contentWidth}}px; top:60px ;margin-top: 6.5%;" delegate-handle="smallScroll01">
+	                <table class="bm_tb_list" ng-repeat="item in items">
+	                    <thead ng-click="showOrNot(item)">
+	                    <tr>
+	                        <th colspan="2">{{item.groupName}}</label>
+	                            <i class="icon-float-right"
+	                               ng-class="item.showGroup?'ion-chevron-up':'ion-chevron-down'"></i>
+	                        </th>
+	                    </tr>
+	                    </thead>
+	                    <tbody>
+	                    <tr ng-repeat="obj in item.groupColArray" ng-show="item.showGroup">
+	                        <td class="td_width_30">{{obj.KeyName}}：</td>
+	                        <td>{{obj.Value}}</td>
+	                    </tr>
+	                    </tbody>
+	                </table>
+            </ion-content>
+        </div>
+        
+        <div class="ui-wrap" ng-show="selectDetailTab2" ng-controller="ApplyDetailController">
+	        <ion-content class="gray-main am-content-has-sub-header am-list arrow-list "  
+	                        style="width: {{contentWidth}}px; top:60px ;margin-top: 6.5%;" delegate-handle="smallScroll01">
+	                <table class="bm_tb_list" ng-repeat="item in items">
+	                    <thead ng-click="showOrNot(item)">
+	                    <tr>
+	                        <th colspan="2">{{item.groupName}}</label>
+	                            <i class="icon-float-right"
+	                               ng-class="item.showGroup?'ion-chevron-up':'ion-chevron-down'"></i>
+	                        </th>
+	                    </tr>
+	                    </thead>
+	                    <tbody>
+	                    <tr ng-repeat="obj in item.groupColArray" ng-show="item.showGroup">
+	                        <td class="td_width_30">{{obj.KeyName}}：</td>
+	                        <td>{{obj.Value}}</td>
+	                    </tr>
+	                    </tbody>
+	                </table>
+            </ion-content>
+        </div>
+        
+        
+        <div class="ui-wrap" ng-show="selectDetailTab3" ng-controller="CustomerDetailController">
+	        <ion-content class="gray-main am-content-has-sub-header am-list arrow-list "  
+	                        style="width: {{contentWidth}}px; top:60px ;margin-top: 6.5%;" delegate-handle="smallScroll01">
+	                <table class="bm_tb_list" ng-repeat="item in items">
+	                    <thead ng-click="showOrNot(item)">
+	                    <tr>
+	                        <th colspan="2">{{item.groupName}}</label>
+	                            <i class="icon-float-right"
+	                               ng-class="item.showGroup?'ion-chevron-up':'ion-chevron-down'"></i>
+	                        </th>
+	                    </tr>
+	                    </thead>
+	                    <tbody>
+	                    <tr ng-repeat="obj in item.groupColArray" ng-show="item.showGroup">
+	                        <td class="td_width_30">{{obj.KeyName}}：</td>
+	                        <td>{{obj.Value}}</td>
+	                    </tr>
+	                    </tbody>
+	                </table>
+            </ion-content>
+        </div>
+        <ion-footer-bar ng-show="selectTab0">
+            <div class="btn-box row" style="width:{{contentWidth}}px">
+                <div class="col">
+                    <button type="button" class="am-button am-button-red" ng-click="backToLastNode()">返回上一步</button>
+                </div>
+                <div class="col">
+                    <button type="button" class="am-button am-button-blue" ng-click="showModal(0)">签署意见并提交</button>
+                </div>
+            </div>
+        </ion-footer-bar>

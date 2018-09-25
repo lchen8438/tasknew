@@ -1,0 +1,16 @@
+<ion-view>
+    <ion-header-bar class="bar-positive" align-title="center">
+        <div class="button am-back" ng-click="goBack()"></div>
+        <h1 class="title">轨迹上传</h1>
+    </ion-header-bar>
+    <ion-content class="gray-main">
+        <div>
+            <img ng-src="{{info.filePath}}" width="100%" height="60%">
+            <div class="btn-box row">
+                <div class="col col-100">
+                    <button class="am-button am-button-blue" type="button" ng-click="doUpload()">上 传</button>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

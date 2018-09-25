@@ -1,0 +1,68 @@
+<ion-view>
+    <ion-header-bar class="bar-positive" align-title="center">
+        <div class="button am-back" ng-click="goBack()"></div>
+        <h1 class="title">日志详情</h1>
+    </ion-header-bar>
+    <ion-content style="background: #f0effe;">
+        <div class="ui-wrap">
+            <div class="flex-logtab">
+                <table class="bm_tb_list" style="border-bottom:10px solid #eeeeee">
+                    <tbody>
+                        <tr>
+                            <td class="td_width_30">登记人:</td>
+                            <td class="td_width_50">
+                                <input type="text" ng-model="log.InputUserId" disabled style="font-size: 12px">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td_width_30">登记机构:</td>
+                            <td class="td_width_50">
+                                <input type="text" placeholder="" ng-model="log.InputOrgId" disabled style="font-size: 12px">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td_width_30">登记日期:</td>
+                            <td class="td_width_50">
+                                <input type="text" placeholder="" ng-model="log.InputDate" style="font-size: 12px" disabled>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td_width_30">日志摘要:</td>
+                            <td>
+                                <input type="text" placeholder="" ng-model="log.WorkBrief" style="font-size: 12px">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td_width_30">工作类型:</td>
+                            <td>
+                                <select class="am-select" ng-model="itemNo" id="worktype" style="width: 90%" ng-options="option.ItemNO as option.ItemName for option in WorkType">
+                                    <option value="">请选择工作类型</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="flex-logContent">
+                <ul class="am-input-list">
+                    <li>
+                        <h3>工作内容：</h3>
+                    </li>
+                    <li class="am-input-list_text">
+                        <textarea class="am-text" type="text" placeholder="" ng-model="log.WorkContent" style="height: 200px; width: 100%;"></textarea>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </ion-content>
+    <ion-footer-bar>
+        <div class="btn-box row">
+            <div class="col col-40">
+                <button type="button" class="am-button am-button-blue" ng-click="dosave()">保存</button>
+            </div>
+            <div class="col col-40">
+                <button type="button" class="am-button am-button-red" ng-click="dodelete()">删除</button>
+            </div>
+        </div>
+    </ion-footer-bar>
+</ion-view>

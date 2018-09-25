@@ -1,0 +1,27 @@
+<ion-view>
+    <ion-header-bar class="bar-positive" align-title="center">
+        <div class="button am-back" ng-click="goBack()"></div>
+        <h1 class="title">总行通知</h1>
+    </ion-header-bar>
+    <ion-content style="background: #f0effe;" class="gray-main">
+        <div>
+            <div class="noticeDetail-title">
+                <img src="img/icon_title.png" style="margin-left:2%;" class="icon_title" />
+                <span>{{notice.BoardTitle}}</span>
+            </div>
+            <p class="noticeDetail-p">{{notice.BoardContent}}</p>
+        </div>
+        <div>
+            <div class="noticeDetail-title">
+                <img src="img/icon_title.png" style="margin-left:2%;" class="icon_title" />
+                <span>附件列表：</span>
+            </div>
+            <ul style="background: #f0effe;" class="am-list no-arrow-list">
+                <li style="width:97%; height: 30px; line-height: 30px; font-size: 0.8rem;" class="worktip_item item" ng-click="donwloadDoc(item)" ng-repeat="item in items">
+                    <a>{{item.FileName}}</a>
+                </li>
+            </ul>
+        </div>
+
+    </ion-content>
+</ion-view>

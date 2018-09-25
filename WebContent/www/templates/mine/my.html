@@ -1,0 +1,65 @@
+<ion-view>
+    <ion-header-bar align-title="center" class="bar-positive">
+        <h1 class="title">我的</h1>
+    </ion-header-bar>
+    <ion-content style="background: #f0effe;" class="gray-main">
+        <dl style="background: #f0effe;" class="am-list arrow-list">
+            <div class="sign-img-center2">
+                <div>
+                    <img src="img/mine.png" ng-click="showPersionInfo()">
+                </div>
+                <p>{{mycount.userName}}</p>
+            </div>
+            <dd style="width:97%;" class="worktip_item item" ng-click="gotologs()">
+                <i class="am_iconfont am-icon-db">&#xe6b3;</i>
+
+                <p class="font_s16 worktip_p">
+                    工作日志
+                </p>
+            </dd>
+            <dd style="width:97%;" class="worktip_item item" ng-click="gotoNews()">
+                <i class="am_iconfont am-icon-sx2">&#xe614;</i>
+                <!--  <div class="my_spot" ng-show=count.newsCount!=0><span class="badge badge-assertive" style="top: 13px">{{count.newsCount}}</span>
+                </div> -->
+                <p class="font_s16 worktip_p">
+                    总行通知
+                </p>
+            </dd>
+            <!-- <dd class="item" ng-click="gotoOfflineMap()">
+                <i class="am_iconfont font-icon-gray">&#xe6ff;</i>
+
+                <p class="font_s16">
+                    <span>离线地图</span>
+                </p>
+            </dd>
+            <dd class="item" ng-click="gotoLocus()">
+                <i class="am_iconfont font-icon-red">&#xe6e7;</i>
+
+                <p class="font_s16">
+                    <span>轨迹查询</span>
+                </p>
+            </dd> -->
+            <dd style="width:97%;" class="worktip_item item" ng-click="gotoSet()">
+                <i class="am_iconfont font-icon-blue iconfont_replace">&#xe612;</i>
+                <p class="font_s16 worktip_p">
+                    设置
+                </p>
+                <span style="position: absolute;right: 3%;bottom: 28%;background-color: red;border-radius: 10px;
+                          width: 45px;height: 18px;text-align: center;color: white;font-size: 13px;" ng-show="redPointShow">New</span>
+            </dd>
+            <!--             <dd class="item" ng-click="gotoExam()" ng-if="!userClass.cusManage">
+                <i class="am_iconfont iconfont_replace font-icon-green">&#xe628;</i>
+                <p class="font_s16"><span>审批统计</span></p>
+            </dd> -->
+            <dd style="width:97%;" class="worktip_item item" ng-click="InitPassword()" ng-show="initPassword">
+                <i class="am_iconfont iconfont_replace font-icon-green">&#xe6df;</i>
+                <p class="font_s16 worktip_p">
+                    密码初始化
+                </p>
+            </dd>
+        </dl>
+    </ion-content>
+    <ion-footer-bar>
+        <div ng-include="'templates/global/nav.html'" style="width: 100%"></div>
+    </ion-footer-bar>
+</ion-view>

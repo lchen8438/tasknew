@@ -1,0 +1,25 @@
+<ion-modal-view ng-style="setServiceIpModalStyle">
+
+  <ion-header-bar align-title="center" class="bar-positive">
+
+   <!--  <h1 class="title">设置服务地址</h1> -->
+  </ion-header-bar>
+  <ion-pane class="gray-main" >
+    <div class="list padding" style="padding-top: 4%;margin-top: 13%;padding-left:5px;padding-right:5px"  >
+      <label class="item item-input" style="padding-left:2px;padding-right:2px" >
+        <input type="text"  ng-model="data.wifi" style="padding-left:2px;padding-right:2px">
+      </label>
+    </div>
+
+  </ion-pane>
+  <ion-footer-bar class="padding:0px">
+
+    <div class="col ">
+      <button type="button" class="am-button am-button-red" ng-click="cancleModel()">取消</button>
+    </div>
+    <div class="col">
+      <button type="button" class="am-button am-button-blue" ng-click="confirm()">确定</button>
+    </div>
+
+  </ion-footer-bar>
+</ion-modal-view>
